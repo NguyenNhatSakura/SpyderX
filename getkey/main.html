@@ -56,7 +56,7 @@
                            <input type="text" id="licenseKey" class="form-control" value="" readonly />
                         </div>
                         <div class="mb-6">
-                           <button type="button" id="copyButton" class="btn btn-primary d-grid w-100">Sao Chép Key <i class='bx bx-copy'></i></button>
+                           <button type="button" id="copyButton" class="btn btn-primary d-grid w-100">Sao Chép Key <i class="fa-regular fa-copy"></i></button>
                         </div>
                      </form>
                      <p class="text-center">
@@ -100,7 +100,7 @@
                document.execCommand('copy');
                
                const originalText = copyButton.innerHTML;
-               copyButton.innerHTML = 'Đã Sao Chép! <i class="bx bx-check"></i>';
+               copyButton.innerHTML = 'Đã Sao Chép! <i class="fa-solid fa-square-check"></i>';
                
                setTimeout(function() {
                   copyButton.innerHTML = originalText;
