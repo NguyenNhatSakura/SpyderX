@@ -92,11 +92,11 @@
                      <p class="mb-6">Hãy Copy Key Và Dán Vào Spyder X, Để Kích Hoạt !</p>
                      <form id="formAuthentication" class="mb-6" action="index.html" method="GET">
                         <div class="mb-6 form-control-validation">
-                           <label for="email" class="form-label">Key Bản Quyền Của Bạn Ở Đây:</label>
-                           <input type="text" class="form-control" placeholder="Không Tạo Dược Key Bản Quyền :(" autofocus />
+                           <label for="licenseKey" class="form-label">Key Bản Quyền Của Bạn Ở Đây:</label>
+                           <input type="text" id="licenseKey" class="form-control" value="?key=SPYDERX-<?php echo bin2hex(random_bytes(4)); ?>" readonly />
                         </div>
                         <div class="mb-6">
-                           <button class="btn btn-primary d-grid w-100">Sao Chép Key<i class='bx bx-copy'></i></button>
+                           <button type="button" id="copyButton" class="btn btn-primary d-grid w-100">Sao Chép Key <i class='bx bx-copy'></i></button>
                         </div>
                      </form>
                      <p class="text-center">
@@ -131,5 +131,32 @@
       <script src=" https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/js/main.js"></script>
       <!-- Page JS -->
       <script src=" https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/js/pages-auth.js"></script>
+      
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            // Get the elements
+            const licenseKeyInput = document.getElementById('licenseKey');
+            const copyButton = document.getElementById('copyButton');
+            
+            // Add click event to copy button
+            copyButton.addEventListener('click', function() {
+               // Select the text
+               licenseKeyInput.select();
+               licenseKeyInput.setSelectionRange(0, 99999); // For mobile devices
+               
+               // Copy the text
+               document.execCommand('copy');
+               
+               // Change button text temporarily
+               const originalText = copyButton.innerHTML;
+               copyButton.innerHTML = 'Đã Sao Chép! <i class="bx bx-check"></i>';
+               
+               // Reset button text after 2 seconds
+               setTimeout(function() {
+                  copyButton.innerHTML = originalText;
+               }, 2000);
+            });
+         });
+      </script>
    </body>
 </html>
