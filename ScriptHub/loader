@@ -4,7 +4,7 @@ local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 
 local TARGET_PLACE_IDS = {
-    [4483381587] = function() print("HELLO 1") end,      -- PlaceID 1
+    [18192562963] = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/CDVN.lua'))() end,      -- PlaceID 1
     [2753915549] = function() print("HELLO 2") end,      -- Blox Fruits PlaceID
     [142823291] = function() print("HELLO 2") end        -- Blox Fruits PlaceID (New)
 }
