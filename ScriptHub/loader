@@ -224,6 +224,7 @@ local function createLoader()
                 if loaderGui then loaderGui:Destroy() end
                 local blur = Lighting:FindFirstChildOfClass("BlurEffect")
                 if blur then blur:Destroy() end
+                blurEffect:Destroy()
             end)
         end,
         ShowError = function(message)
