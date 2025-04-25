@@ -11,7 +11,7 @@ local CurrentCamera = workspace.CurrentCamera;
 local RunService = game:GetService('RunService');
 local TextSv = game:GetService('TextService');
 
-function NguyenMinhNhat:LeBaoNgan() : string
+function NguyenMinhNhat:ChiuMyLy() : string
 	return tostring(table.create(math.random(1,10),nil)):gsub('table: ','')
 end;
 
@@ -59,7 +59,7 @@ function NguyenMinhNhat:SetBlur(frame,NoAutoBackground)
 	Part.Anchored = true;
 	Part.CanCollide = false;
 	Part.CanQuery = false;
-	Part.CollisionGroup = NguyenMinhNhat:LeBaoNgan();
+	Part.CollisionGroup = NguyenMinhNhat:ChiuMyLy();
 	Part.Size = Vector3.new(1, 1, 1) * 0.01;
 	Part.Color = Color3.fromRGB(0,0,0);
 
@@ -79,9 +79,9 @@ function NguyenMinhNhat:SetBlur(frame,NoAutoBackground)
 	SurfaceGui.Face = Enum.NormalId.Front;
 	SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 
-	DepthOfField.Name = NguyenMinhNhat:LeBaoNgan();
-	Part.Name = NguyenMinhNhat:LeBaoNgan();
-	SurfaceGui.Name = NguyenMinhNhat:LeBaoNgan();
+	DepthOfField.Name = NguyenMinhNhat:ChiuMyLy();
+	Part.Name = NguyenMinhNhat:ChiuMyLy();
+	SurfaceGui.Name = NguyenMinhNhat:ChiuMyLy();
 
 	local C4 = {
 		Update = nil,
@@ -1045,7 +1045,7 @@ function NguyenMinhNhat.new(self)
 	SpyderXLib.ResetOnSpawn = false
 	SpyderXLib.IgnoreGuiInset = true
 	SpyderXLib.ZIndexBehavior = Enum.ZIndexBehavior.Global
-	SpyderXLib.Name = NguyenMinhNhat:LeBaoNgan();
+	SpyderXLib.Name = NguyenMinhNhat:ChiuMyLy();
 
 	if protect_gui or protectgui then
 		(protect_gui or protectgui)(SpyderXLib);
@@ -1055,25 +1055,25 @@ function NguyenMinhNhat.new(self)
 		for index = 1 , math.random(55,100) do task.wait();
 			local folder = Instance.new('Folder',SpyderXLib);
 
-			folder.Name = NguyenMinhNhat:LeBaoNgan();
+			folder.Name = NguyenMinhNhat:ChiuMyLy();
 
-			Instance.new('ModuleScript',folder).Name = NguyenMinhNhat:LeBaoNgan();
-			Instance.new('BindableEvent',folder).Name = NguyenMinhNhat:LeBaoNgan();
+			Instance.new('ModuleScript',folder).Name = NguyenMinhNhat:ChiuMyLy();
+			Instance.new('BindableEvent',folder).Name = NguyenMinhNhat:ChiuMyLy();
 		end;
 
 		for index = 1 , math.random(55,100) do task.wait();
 			local folder = Instance.new('Folder',WindowFrame);
 
-			folder.Name = NguyenMinhNhat:LeBaoNgan();
+			folder.Name = NguyenMinhNhat:ChiuMyLy();
 
-			Instance.new('ModuleScript',folder).Name = NguyenMinhNhat:LeBaoNgan();
-			Instance.new('BindableEvent',folder).Name = NguyenMinhNhat:LeBaoNgan();
+			Instance.new('ModuleScript',folder).Name = NguyenMinhNhat:ChiuMyLy();
+			Instance.new('BindableEvent',folder).Name = NguyenMinhNhat:ChiuMyLy();
 		end;
 	end)
 
 	self.Root = SpyderXLib;
 
-	WindowFrame.Name = NguyenMinhNhat:LeBaoNgan();
+	WindowFrame.Name = NguyenMinhNhat:ChiuMyLy();
 	WindowFrame.Parent = SpyderXLib
 	WindowFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	WindowFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
@@ -1103,9 +1103,9 @@ function NguyenMinhNhat.new(self)
 
 	UICorner.CornerRadius = UDim.new(0, 4)
 	UICorner.Parent = WindowFrame
-	UICorner.Name = NguyenMinhNhat:LeBaoNgan();
+	UICorner.Name = NguyenMinhNhat:ChiuMyLy();
 
-	DropShadow.Name = NguyenMinhNhat:LeBaoNgan();
+	DropShadow.Name = NguyenMinhNhat:ChiuMyLy();
 	DropShadow.Parent = WindowFrame
 	DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
 	DropShadow.BackgroundTransparency = 1.000
@@ -1119,9 +1119,9 @@ function NguyenMinhNhat.new(self)
 	DropShadow.ImageTransparency = 1
 	DropShadow.ScaleType = Enum.ScaleType.Slice
 	DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-	DropShadow.Name = NguyenMinhNhat:LeBaoNgan();
+	DropShadow.Name = NguyenMinhNhat:ChiuMyLy();
 
-	Headers.Name = NguyenMinhNhat:LeBaoNgan();
+	Headers.Name = NguyenMinhNhat:ChiuMyLy();
 	Headers.Parent = WindowFrame
 	Headers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Headers.BackgroundTransparency = 1.000
@@ -1129,9 +1129,9 @@ function NguyenMinhNhat.new(self)
 	Headers.BorderSizePixel = 0
 	Headers.Size = UDim2.new(1, 0, 0, 22)
 	Headers.ZIndex = 5
-	Headers.Name = NguyenMinhNhat:LeBaoNgan();
+	Headers.Name = NguyenMinhNhat:ChiuMyLy();
 
-	WindowText.Name = NguyenMinhNhat:LeBaoNgan();
+	WindowText.Name = NguyenMinhNhat:ChiuMyLy();
 	WindowText.Parent = Headers
 	WindowText.AnchorPoint = Vector2.new(0, 0.5)
 	WindowText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1147,7 +1147,7 @@ function NguyenMinhNhat.new(self)
 	WindowText.TextXAlignment = Enum.TextXAlignment.Left
 	WindowText.TextTransparency = 1;
 	WindowText.RichText = true
-	WindowText.Name = NguyenMinhNhat:LeBaoNgan();
+	WindowText.Name = NguyenMinhNhat:ChiuMyLy();
 
 	TweenSv:Create(WindowText,TweenInfo.new(2,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut),{
 		TextTransparency = 0,
@@ -1163,7 +1163,7 @@ function NguyenMinhNhat.new(self)
 	Frame.Position = UDim2.new(1, -4, 0.5, 0)
 	Frame.Size = UDim2.new(0, 55, 0.5, 0)
 	Frame.ZIndex = 4
-	Frame.Name = NguyenMinhNhat:LeBaoNgan();
+	Frame.Name = NguyenMinhNhat:ChiuMyLy();
 
 	UIListLayout.Parent = Frame
 	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
@@ -1171,9 +1171,9 @@ function NguyenMinhNhat.new(self)
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 	UIListLayout.Padding = UDim.new(0, 5)
-	UIListLayout.Name = NguyenMinhNhat:LeBaoNgan();
+	UIListLayout.Name = NguyenMinhNhat:ChiuMyLy();
 
-	MinButton.Name = NguyenMinhNhat:LeBaoNgan();
+	MinButton.Name = NguyenMinhNhat:ChiuMyLy();
 	MinButton.Parent = Frame
 	MinButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	MinButton.BackgroundTransparency = 1.000
@@ -1193,7 +1193,7 @@ function NguyenMinhNhat.new(self)
 
 
 
-	CloseButton.Name = NguyenMinhNhat:LeBaoNgan();
+	CloseButton.Name = NguyenMinhNhat:ChiuMyLy();
 	CloseButton.Parent = Frame
 	CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	CloseButton.BackgroundTransparency = 1.000
@@ -1209,7 +1209,7 @@ function NguyenMinhNhat.new(self)
 		NguyenMinhNhat.CreateEmuIcon(CloseButton , "X")
 	end
 
-	HeadLine.Name = NguyenMinhNhat:LeBaoNgan();
+	HeadLine.Name = NguyenMinhNhat:ChiuMyLy();
 	HeadLine.Parent = Headers
 	HeadLine.AnchorPoint = Vector2.new(0, 1)
 	HeadLine.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -1220,7 +1220,7 @@ function NguyenMinhNhat.new(self)
 	HeadLine.Size = UDim2.new(1, 0, 0, 1)
 	HeadLine.ZIndex = 4
 
-	TabInputs.Name = NguyenMinhNhat:LeBaoNgan();
+	TabInputs.Name = NguyenMinhNhat:ChiuMyLy();
 	TabInputs.Parent = WindowFrame
 	TabInputs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	TabInputs.BackgroundTransparency = 1.000
@@ -1241,13 +1241,13 @@ function NguyenMinhNhat.new(self)
 	ScrollingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	ScrollingFrame.Size = UDim2.new(1, -2, 1, -2)
 	ScrollingFrame.ScrollBarThickness = 0
-	ScrollingFrame.Name = NguyenMinhNhat:LeBaoNgan();
+	ScrollingFrame.Name = NguyenMinhNhat:ChiuMyLy();
 
 	UIListLayout_2.Parent = ScrollingFrame
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_2.Padding = UDim.new(0, 100)
-	UIListLayout_2.Name = NguyenMinhNhat:LeBaoNgan();
+	UIListLayout_2.Name = NguyenMinhNhat:ChiuMyLy();
 
 	UIListLayout_2:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(function()
 		ScrollingFrame.CanvasSize = UDim2.new(0,0,0,UIListLayout_2.AbsoluteContentSize.Y + 10)
@@ -1259,7 +1259,7 @@ function NguyenMinhNhat.new(self)
 		}):Play();
 	end);
 
-	HeadLine_2.Name = NguyenMinhNhat:LeBaoNgan();
+	HeadLine_2.Name = NguyenMinhNhat:ChiuMyLy();
 	HeadLine_2.Parent = TabInputs
 	HeadLine_2.AnchorPoint = Vector2.new(1, 0)
 	HeadLine_2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -1270,7 +1270,7 @@ function NguyenMinhNhat.new(self)
 	HeadLine_2.Size = UDim2.new(0, 1, 1, 0)
 	HeadLine_2.ZIndex = 4
 
-	TabFrames.Name = NguyenMinhNhat:LeBaoNgan();
+	TabFrames.Name = NguyenMinhNhat:ChiuMyLy();
 	TabFrames.Parent = WindowFrame
 	TabFrames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	TabFrames.BackgroundTransparency = 1.000
@@ -1288,7 +1288,7 @@ function NguyenMinhNhat.new(self)
 		local ScrollingFrame = Instance.new("ScrollingFrame")
 		local UIListLayout = Instance.new("UIListLayout")
 
-		DropdownFrame.Name = NguyenMinhNhat:LeBaoNgan();
+		DropdownFrame.Name = NguyenMinhNhat:ChiuMyLy();
 		DropdownFrame.Parent = SpyderXLib;
 		DropdownFrame.AnchorPoint = Vector2.new(0.5, 1)
 		DropdownFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
@@ -1316,13 +1316,13 @@ function NguyenMinhNhat.new(self)
 		ScrollingFrame.Size = UDim2.new(1, -5, 1, -10)
 		ScrollingFrame.ZIndex = 56
 		ScrollingFrame.ScrollBarThickness = 1
-		ScrollingFrame.Name = NguyenMinhNhat:LeBaoNgan();
+		ScrollingFrame.Name = NguyenMinhNhat:ChiuMyLy();
 
 		UIListLayout.Parent = ScrollingFrame
 		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout.Padding = UDim.new(0, 4)
-		UIListLayout.Name = NguyenMinhNhat:LeBaoNgan();
+		UIListLayout.Name = NguyenMinhNhat:ChiuMyLy();
 
 		UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(function()
 			ScrollingFrame.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y)
@@ -1338,7 +1338,7 @@ function NguyenMinhNhat.new(self)
 			local UIStroke = Instance.new("UIStroke")
 			local PText = Instance.new("TextLabel")
 
-			bth.Name = NguyenMinhNhat:LeBaoNgan();
+			bth.Name = NguyenMinhNhat:ChiuMyLy();
 			bth.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 			bth.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			bth.BorderSizePixel = 0
@@ -1356,7 +1356,7 @@ function NguyenMinhNhat.new(self)
 			UIStroke.Color = Color3.fromRGB(172, 172, 172)
 			UIStroke.Transparency = 0.900
 
-			PText.Name = NguyenMinhNhat:LeBaoNgan();
+			PText.Name = NguyenMinhNhat:ChiuMyLy();
 			PText.Parent = bth
 			PText.AnchorPoint = Vector2.new(0, 0.5)
 			PText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1476,7 +1476,7 @@ function NguyenMinhNhat.new(self)
 			local UICorner = Instance.new("UICorner")
 			local TextBox = Instance.new("TextBox")
 
-			SearchBar.Name = NguyenMinhNhat:LeBaoNgan()
+			SearchBar.Name = NguyenMinhNhat:ChiuMyLy()
 			SearchBar.Parent = SpyderXLib
 			SearchBar.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 			SearchBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1489,7 +1489,7 @@ function NguyenMinhNhat.new(self)
 			UICorner.CornerRadius = UDim.new(0, 4)
 			UICorner.Parent = SearchBar
 			
-			TextBox.Name = NguyenMinhNhat:LeBaoNgan();
+			TextBox.Name = NguyenMinhNhat:ChiuMyLy();
 			TextBox.Parent = SearchBar
 			TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1557,7 +1557,7 @@ function NguyenMinhNhat.new(self)
 				end;
 			end)
 			
-			RunService:BindToRenderStep("__DROPDOWN_INIT__"..NguyenMinhNhat:LeBaoNgan(),56,function()
+			RunService:BindToRenderStep("__DROPDOWN_INIT__"..NguyenMinhNhat:ChiuMyLy(),56,function()
 				if DropdownSyyu.Visible then
 					
 					
@@ -1619,7 +1619,7 @@ function NguyenMinhNhat.new(self)
 		local UIGradient = Instance.new("UIGradient")
 		local UIGradient_2 = Instance.new("UIGradient")
 
-		TabButton.Name = NguyenMinhNhat:LeBaoNgan();
+		TabButton.Name = NguyenMinhNhat:ChiuMyLy();
 		TabButton.Parent = ScrollingFrame;
 		TabButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 		TabButton.BackgroundTransparency = 0.500
@@ -1631,7 +1631,7 @@ function NguyenMinhNhat.new(self)
 		UICorner.CornerRadius = UDim.new(0, 3)
 		UICorner.Parent = TabButton
 
-		PText.Name = NguyenMinhNhat:LeBaoNgan();
+		PText.Name = NguyenMinhNhat:ChiuMyLy();
 		PText.Parent = TabButton
 		PText.AnchorPoint = Vector2.new(0, 0.5)
 		PText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1649,7 +1649,7 @@ function NguyenMinhNhat.new(self)
 		PText.TextXAlignment = Enum.TextXAlignment.Left
 		PText.RichText = true
 
-		Icon.Name = NguyenMinhNhat:LeBaoNgan();
+		Icon.Name = NguyenMinhNhat:ChiuMyLy();
 		Icon.Parent = TabButton
 		Icon.AnchorPoint = Vector2.new(0, 0.5)
 		Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1684,7 +1684,7 @@ function NguyenMinhNhat.new(self)
 		local HeadLine = Instance.new("Frame")
 		local SrcFrame = Instance.new("Frame")
 
-		TabBlock.Name = NguyenMinhNhat:LeBaoNgan();
+		TabBlock.Name = NguyenMinhNhat:ChiuMyLy();
 		TabBlock.Parent = TabFrames
 		TabBlock.AnchorPoint = Vector2.new(0.5, 0.5)
 		TabBlock.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1695,7 +1695,7 @@ function NguyenMinhNhat.new(self)
 		TabBlock.Size = UDim2.new(1, 0, 1, 0)
 		TabBlock.ZIndex = 10
 
-		TabHeaders.Name = NguyenMinhNhat:LeBaoNgan();
+		TabHeaders.Name = NguyenMinhNhat:ChiuMyLy();
 		TabHeaders.Parent = TabBlock
 		TabHeaders.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabHeaders.BackgroundTransparency = 1.000
@@ -1704,7 +1704,7 @@ function NguyenMinhNhat.new(self)
 		TabHeaders.ClipsDescendants = true
 		TabHeaders.Size = UDim2.new(1, 0, 0, 23)
 
-		SectionScroll.Name = NguyenMinhNhat:LeBaoNgan();
+		SectionScroll.Name = NguyenMinhNhat:ChiuMyLy();
 		SectionScroll.Parent = TabHeaders
 		SectionScroll.Active = true
 		SectionScroll.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1735,7 +1735,7 @@ function NguyenMinhNhat.new(self)
 			}):Play();
 		end);
 
-		HeadLine.Name = NguyenMinhNhat:LeBaoNgan();
+		HeadLine.Name = NguyenMinhNhat:ChiuMyLy();
 		HeadLine.Parent = TabBlock
 		HeadLine.AnchorPoint = Vector2.new(0, 1)
 		HeadLine.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -1746,7 +1746,7 @@ function NguyenMinhNhat.new(self)
 		HeadLine.Size = UDim2.new(1, 0, 0, 1)
 		HeadLine.ZIndex = 4
 
-		SrcFrame.Name = NguyenMinhNhat:LeBaoNgan();
+		SrcFrame.Name = NguyenMinhNhat:ChiuMyLy();
 		SrcFrame.Parent = TabBlock
 		SrcFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		SrcFrame.BackgroundTransparency = 1.000
@@ -1768,7 +1768,7 @@ function NguyenMinhNhat.new(self)
 			local Label = Instance.new("TextLabel")
 			local UIGradient = Instance.new("UIGradient")
 
-			SectionInput.Name = NguyenMinhNhat:LeBaoNgan();
+			SectionInput.Name = NguyenMinhNhat:ChiuMyLy();
 			SectionInput.Parent = SectionScroll;
 			SectionInput.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 			SectionInput.BackgroundTransparency = 0.200
@@ -1785,7 +1785,7 @@ function NguyenMinhNhat.new(self)
 			UIStroke.Color = Color3.fromRGB(172, 172, 172)
 			UIStroke.Transparency = 0.890
 
-			Label.Name = NguyenMinhNhat:LeBaoNgan();
+			Label.Name = NguyenMinhNhat:ChiuMyLy();
 			Label.Parent = SectionInput
 			Label.AnchorPoint = Vector2.new(0.5, 0.5)
 			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1815,7 +1815,7 @@ function NguyenMinhNhat.new(self)
 			local SectionMainFrame = Instance.new("ScrollingFrame")
 			local UIListLayout = Instance.new("UIListLayout")
 
-			SectionMainFrame.Name = NguyenMinhNhat:LeBaoNgan();
+			SectionMainFrame.Name = NguyenMinhNhat:ChiuMyLy();
 			SectionMainFrame.Parent = SrcFrame
 			SectionMainFrame.Active = true
 			SectionMainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1864,7 +1864,7 @@ function NguyenMinhNhat.new(self)
 					local circle = Instance.new("Frame")
 					local UICorner_3 = Instance.new("UICorner")
 
-					ToggleSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					ToggleSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					ToggleSrc.Parent = SectionMainFrame
 					ToggleSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					ToggleSrc.BackgroundTransparency = 0.150
@@ -1885,7 +1885,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = ToggleSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = ToggleSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1903,7 +1903,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					mv.Name = NguyenMinhNhat:LeBaoNgan();
+					mv.Name = NguyenMinhNhat:ChiuMyLy();
 					mv.Parent = ToggleSrc
 					mv.AnchorPoint = Vector2.new(1, 0.5)
 					mv.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -1920,7 +1920,7 @@ function NguyenMinhNhat.new(self)
 					UIStroke_2.Color = Color3.fromRGB(172, 172, 172)
 					UIStroke_2.Transparency = 0.890
 
-					circle.Name = NguyenMinhNhat:LeBaoNgan();
+					circle.Name = NguyenMinhNhat:ChiuMyLy();
 					circle.Parent = mv
 					circle.AnchorPoint = Vector2.new(0.5, 0.5)
 					circle.BackgroundColor3 = Color3.fromRGB(0, 255, 238)
@@ -1989,7 +1989,7 @@ function NguyenMinhNhat.new(self)
 					local Label = Instance.new("TextLabel")
 					local Icon = Instance.new("ImageLabel")
 
-					ButtonSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					ButtonSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					ButtonSrc.Parent = SectionMainFrame;
 					ButtonSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					ButtonSrc.BackgroundTransparency = 0.150
@@ -2010,7 +2010,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = ButtonSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = ButtonSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2028,7 +2028,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					Icon.Name = NguyenMinhNhat:LeBaoNgan();
+					Icon.Name = NguyenMinhNhat:ChiuMyLy();
 					Icon.Parent = ButtonSrc
 					Icon.AnchorPoint = Vector2.new(1, 0.5)
 					Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2100,7 +2100,7 @@ function NguyenMinhNhat.new(self)
 					local Title = Instance.new("TextLabel")
 					local Content = Instance.new("TextLabel")
 
-					ParagraphSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					ParagraphSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					ParagraphSrc.Parent = SectionMainFrame
 					ParagraphSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					ParagraphSrc.BackgroundTransparency = 0.150
@@ -2121,7 +2121,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = ParagraphSrc
 
-					Title.Name = NguyenMinhNhat:LeBaoNgan();
+					Title.Name = NguyenMinhNhat:ChiuMyLy();
 					Title.Parent = ParagraphSrc
 					Title.AnchorPoint = Vector2.new(0, 0.5)
 					Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2139,7 +2139,7 @@ function NguyenMinhNhat.new(self)
 					Title.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					Content.Name = NguyenMinhNhat:LeBaoNgan();
+					Content.Name = NguyenMinhNhat:ChiuMyLy();
 					Content.Parent = ParagraphSrc
 					Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					Content.BackgroundTransparency = 1.000
@@ -2218,7 +2218,7 @@ function NguyenMinhNhat.new(self)
 					local UIStroke_2 = Instance.new("UIStroke")
 					local BindLabel = Instance.new("TextLabel")
 
-					KeybindSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					KeybindSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					KeybindSrc.Parent = SectionMainFrame;
 					KeybindSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					KeybindSrc.BackgroundTransparency = 0.150
@@ -2239,7 +2239,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = KeybindSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = KeybindSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2257,7 +2257,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					mv.Name = NguyenMinhNhat:LeBaoNgan();
+					mv.Name = NguyenMinhNhat:ChiuMyLy();
 					mv.Parent = KeybindSrc
 					mv.AnchorPoint = Vector2.new(1, 0.5)
 					mv.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -2275,7 +2275,7 @@ function NguyenMinhNhat.new(self)
 					UIStroke_2.Color = Color3.fromRGB(172, 172, 172)
 					UIStroke_2.Transparency = 0.890
 
-					BindLabel.Name = NguyenMinhNhat:LeBaoNgan();
+					BindLabel.Name = NguyenMinhNhat:ChiuMyLy();
 					BindLabel.Parent = mv
 					BindLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 					BindLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2371,7 +2371,7 @@ function NguyenMinhNhat.new(self)
 					local UIStroke_2 = Instance.new("UIStroke")
 					local InputBox = Instance.new("TextBox")
 
-					TextboxSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					TextboxSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					TextboxSrc.Parent = SectionMainFrame
 					TextboxSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					TextboxSrc.BackgroundTransparency = 0.150
@@ -2392,7 +2392,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = TextboxSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = TextboxSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2410,7 +2410,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					mv.Name = NguyenMinhNhat:LeBaoNgan();
+					mv.Name = NguyenMinhNhat:ChiuMyLy();
 					mv.Parent = TextboxSrc
 					mv.AnchorPoint = Vector2.new(1, 0.5)
 					mv.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -2428,7 +2428,7 @@ function NguyenMinhNhat.new(self)
 					UIStroke_2.Color = Color3.fromRGB(172, 172, 172)
 					UIStroke_2.Transparency = 0.890
 
-					InputBox.Name = NguyenMinhNhat:LeBaoNgan();
+					InputBox.Name = NguyenMinhNhat:ChiuMyLy();
 					InputBox.Parent = mv
 					InputBox.AnchorPoint = Vector2.new(0, 0.5)
 					InputBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2523,7 +2523,7 @@ function NguyenMinhNhat.new(self)
 					local UICorner_3 = Instance.new("UICorner")
 					local UIGradient_2 = Instance.new("UIGradient")
 
-					SliderSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					SliderSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					SliderSrc.Parent = SectionMainFrame
 					SliderSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					SliderSrc.BackgroundTransparency = 0.150
@@ -2544,7 +2544,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = SliderSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = SliderSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2562,7 +2562,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					ValueLabel.Name = NguyenMinhNhat:LeBaoNgan();
+					ValueLabel.Name = NguyenMinhNhat:ChiuMyLy();
 					ValueLabel.Parent = SliderSrc
 					ValueLabel.AnchorPoint = Vector2.new(1, 0.5)
 					ValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2579,7 +2579,7 @@ function NguyenMinhNhat.new(self)
 					ValueLabel.TextTransparency = 0.400
 					ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
 
-					mv.Name = NguyenMinhNhat:LeBaoNgan();
+					mv.Name = NguyenMinhNhat:ChiuMyLy();
 					mv.Parent = SliderSrc
 					mv.AnchorPoint = Vector2.new(0, 1)
 					mv.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -2597,7 +2597,7 @@ function NguyenMinhNhat.new(self)
 					UICorner_2.CornerRadius = UDim.new(1, 0)
 					UICorner_2.Parent = mv
 
-					move.Name = NguyenMinhNhat:LeBaoNgan();
+					move.Name = NguyenMinhNhat:ChiuMyLy();
 					move.Parent = mv
 					move.AnchorPoint = Vector2.new(0, 0.5)
 					move.BackgroundColor3 = Color3.fromRGB(0, 255, 238)
@@ -2723,7 +2723,7 @@ function NguyenMinhNhat.new(self)
 					local UIStroke_2 = Instance.new("UIStroke")
 					local ValueLabel = Instance.new("TextLabel")
 
-					DropdownSrc.Name = NguyenMinhNhat:LeBaoNgan();
+					DropdownSrc.Name = NguyenMinhNhat:ChiuMyLy();
 					DropdownSrc.Parent = SectionMainFrame;
 					DropdownSrc.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 					DropdownSrc.BackgroundTransparency = 0.150
@@ -2744,7 +2744,7 @@ function NguyenMinhNhat.new(self)
 					UIGradient.Rotation = 90
 					UIGradient.Parent = DropdownSrc
 
-					Label.Name = NguyenMinhNhat:LeBaoNgan();
+					Label.Name = NguyenMinhNhat:ChiuMyLy();
 					Label.Parent = DropdownSrc
 					Label.AnchorPoint = Vector2.new(0, 0.5)
 					Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2762,7 +2762,7 @@ function NguyenMinhNhat.new(self)
 					Label.TextXAlignment = Enum.TextXAlignment.Left
 					Label.RichText = true
 
-					mv.Name = NguyenMinhNhat:LeBaoNgan();
+					mv.Name = NguyenMinhNhat:ChiuMyLy();
 					mv.Parent = DropdownSrc
 					mv.AnchorPoint = Vector2.new(1, 0.5)
 					mv.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -2780,7 +2780,7 @@ function NguyenMinhNhat.new(self)
 					UIStroke_2.Color = Color3.fromRGB(172, 172, 172)
 					UIStroke_2.Transparency = 0.890
 
-					ValueLabel.Name = NguyenMinhNhat:LeBaoNgan();
+					ValueLabel.Name = NguyenMinhNhat:ChiuMyLy();
 					ValueLabel.Parent = mv
 					ValueLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 					ValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3009,7 +3009,7 @@ function NguyenMinhNhat.new(self)
 	local Resize = Instance.new("TextButton")
 	local IsHold = false;
 
-	Resize.Name = NguyenMinhNhat:LeBaoNgan();
+	Resize.Name = NguyenMinhNhat:ChiuMyLy();
 	Resize.Parent = WindowFrame
 	Resize.AnchorPoint = Vector2.new(0.5, 0.5)
 	Resize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3085,7 +3085,7 @@ function NguyenMinhNhat.new(self)
 		local UIListLayout = Instance.new("UIListLayout")
 		local HeadLine = Instance.new("Frame")
 
-		GWindow.Name = NguyenMinhNhat:LeBaoNgan();
+		GWindow.Name = NguyenMinhNhat:ChiuMyLy();
 		GWindow.Parent = SpyderXLib
 		GWindow.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 		GWindow.BackgroundTransparency = 0.040
@@ -3100,7 +3100,7 @@ function NguyenMinhNhat.new(self)
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = GWindow
 
-		DropShadow.Name = NguyenMinhNhat:LeBaoNgan();
+		DropShadow.Name = NguyenMinhNhat:ChiuMyLy();
 		DropShadow.Parent = GWindow
 		DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
 		DropShadow.BackgroundTransparency = 1.000
@@ -3117,7 +3117,7 @@ function NguyenMinhNhat.new(self)
 		DropShadow.Rotation = 0.001;
 		DropShadow.Active = true
 
-		Headers.Name = NguyenMinhNhat:LeBaoNgan();
+		Headers.Name = NguyenMinhNhat:ChiuMyLy();
 		Headers.Parent = GWindow
 		Headers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Headers.BackgroundTransparency = 1.000
@@ -3126,7 +3126,7 @@ function NguyenMinhNhat.new(self)
 		Headers.Size = UDim2.new(1, 0, 0, 23)
 		Headers.ZIndex = 155
 
-		WindowText.Name = NguyenMinhNhat:LeBaoNgan();
+		WindowText.Name = NguyenMinhNhat:ChiuMyLy();
 		WindowText.Parent = Headers
 		WindowText.AnchorPoint = Vector2.new(0, 0.5)
 		WindowText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3152,7 +3152,7 @@ function NguyenMinhNhat.new(self)
 		Frame.Size = UDim2.new(0.699999988, 0, 0.699999988, 0)
 		Frame.ZIndex = 4
 
-		MinButtonT.Name = NguyenMinhNhat:LeBaoNgan();
+		MinButtonT.Name = NguyenMinhNhat:ChiuMyLy();
 		MinButtonT.Parent = Frame
 		MinButtonT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		MinButtonT.BackgroundTransparency = 1.000
@@ -3175,7 +3175,7 @@ function NguyenMinhNhat.new(self)
 		UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 		UIListLayout.Padding = UDim.new(0, 5)
 
-		HeadLine.Name = NguyenMinhNhat:LeBaoNgan();
+		HeadLine.Name = NguyenMinhNhat:ChiuMyLy();
 		HeadLine.Parent = Headers
 		HeadLine.AnchorPoint = Vector2.new(0, 1)
 		HeadLine.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
