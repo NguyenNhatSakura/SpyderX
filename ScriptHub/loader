@@ -299,4 +299,5 @@ else
     loader.ShowError("Không Hỗ Trợ PlaceID: "..currentPlaceId)
     wait(3)
     loader.Close()
+    game.Players.LocalPlayer:Kick("Game Not Support !! | discord.gg/VM7ESrzccs")
 end
