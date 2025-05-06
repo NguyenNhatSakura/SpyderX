@@ -6,13 +6,13 @@ local RunService = game:GetService("RunService")
 local TARGET_PLACE_IDS = {
     [18192562963] = function()
            loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/CDVN.lua'))()
-    end,      -- PlaceID 1
+    end,      -- Cộng Đồng Việt Nam
     [10260193230] = function()
            loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/memesea.lua'))()
-    end,      -- Blox Fruits PlaceID
-    [142823291] = function()
-           print("HELLO 2") 
-    end        -- Blox Fruits PlaceID (New)
+    end,      -- Meme Sea
+    [122678592501168] = function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/Beaks.lua'))()
+    end        -- Beaks
 }
 
 local THEME = {
