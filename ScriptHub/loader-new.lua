@@ -14,6 +14,18 @@ local result, code = pcall(function()
     return LocalizationService:GetCountryRegionForPlayerAsync(player)
 end)
 
+local TARGET_PLACE_IDS = {
+    [18192562963] = function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/CDVN.lua'))()
+    end,      -- Cộng Đồng Việt Nam
+    [10260193230] = function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/memesea.lua'))()
+    end,      -- Meme Sea
+    [122678592501168] = function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/Beaks.lua'))()
+    end        -- Beaks
+}
+
 local Drop = Instance.new("ScreenGui")
 local Drop_2 = Instance.new("ImageLabel")
 local Clound = Instance.new("ImageLabel")
@@ -171,7 +183,7 @@ TOTEXT.Text = game_name()
 wait(1)
 TOTEXT.Text = "Check Game Is SP"
 local sp = false
-if game.PlaceId == 7449423635 or game.PlaceId == 2753915549 or game.PlaceId == 4442272183 then
+if game.PlaceId == 122678592501168 or game.PlaceId == 10260193230 or game.PlaceId == 18192562963 then
     sp = true
 else
 	TOTEXT.Text = "Not SP"
@@ -328,6 +340,41 @@ task.wait(.5)
             ['nonce'] = 'OwO'
         })})
 
-if game.PlaceId == 7449423635 or game.PlaceId == 2753915549 or game.PlaceId == 4442272183 then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/Sakura-Hub/main/SexxyBloxFruit.lua"))()
+local player = game.Players.LocalPlayer
+local StarterGui = game:GetService("StarterGui")
+
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local sound = Instance.new("Sound")
+
+sound.Parent = ImageButton1
+sound.SoundId = "rbxassetid://130785805"
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://131489183118092"
+ImageButton1.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.LeftAlt, false, game)
+    sound:Play()
+end)
+UICorner.Parent = ImageButton1
+UIStroke.Color = Color3.fromRGB(252, 3, 161)
+UIStroke.Thickness = 1.5
+UIStroke.Parent = ImageButton1
+
+if TARGET_PLACE_IDS[currentPlaceId] then
+    TARGET_PLACE_IDS[currentPlaceId]()
+else
+    game.Players.LocalPlayer:Kick("Game Not Support !! | discord.gg/VM7ESrzccs")
 end
+
