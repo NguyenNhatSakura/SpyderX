@@ -20,7 +20,10 @@ local TARGET_PLACE_IDS = {
     end,      -- Meme Sea
     [122678592501168] = function()
            loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/Beaks.lua'))()
-    end        -- Beaks
+    end,       -- Beaks
+    [17334984034] = function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/AnimeKingdomSimulator.lua'))()
+    end        -- Anime Kingdom Simulator
 }
 
 local THEME = {
