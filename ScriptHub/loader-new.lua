@@ -3,6 +3,14 @@ local Lighting = game:GetService("Lighting")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 
+loadstring([[
+	function LPH_NO_VIRTUALIZE(f) return f end;
+
+	function LPH_JIT(f) return f end;
+
+	function LPH_JIT_MAX(f) return f end;
+]])();
+
 local TARGET_PLACE_IDS = {
     [18192562963] = function()
            loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/CDVN.lua'))()
