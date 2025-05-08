@@ -11,6 +11,38 @@ loadstring([[
 	function LPH_JIT_MAX(f) return f end;
 ]])();
 
+local player = game.Players.LocalPlayer
+local StarterGui = game:GetService("StarterGui")
+
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local sound = Instance.new("Sound")
+
+sound.Parent = ImageButton1
+sound.SoundId = "rbxassetid://130785805"
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://131489183118092"
+ImageButton1.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.LeftAlt, false, game)
+    sound:Play()
+end)
+UICorner.Parent = ImageButton1
+UIStroke.Color = Color3.fromRGB(252, 3, 161)
+UIStroke.Thickness = 1.5
+UIStroke.Parent = ImageButton1
+
 local TARGET_PLACE_IDS = {
     [18192562963] = function()
            loadstring(game:HttpGet('https://raw.githubusercontent.com/NguyenNhatSakura/SpyderX/refs/heads/main/ScriptHub/File/CDVN.lua'))()
@@ -275,37 +307,6 @@ if TARGET_PLACE_IDS[currentPlaceId] then
     wait(1)
     loader.Close()
     TARGET_PLACE_IDS[currentPlaceId]()
-    local player = game.Players.LocalPlayer
-local StarterGui = game:GetService("StarterGui")
-
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-local UIStroke = Instance.new("UIStroke")
-local sound = Instance.new("Sound")
-
-sound.Parent = ImageButton1
-sound.SoundId = "rbxassetid://130785805"
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
-ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://131489183118092"
-ImageButton1.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.LeftAlt, false, game)
-    sound:Play()
-end)
-UICorner.Parent = ImageButton1
-UIStroke.Color = Color3.fromRGB(252, 3, 161)
-UIStroke.Thickness = 1.5
-UIStroke.Parent = ImageButton1
 else
     loader.ShowError("Không Hỗ Trợ PlaceID: "..currentPlaceId)
     wait(3)
