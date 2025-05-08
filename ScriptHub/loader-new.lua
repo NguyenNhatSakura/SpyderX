@@ -2,15 +2,6 @@ local Players = game:GetService("Players")
 local Lighting = game:GetService("Lighting")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
-
-loadstring([[
-	function LPH_NO_VIRTUALIZE(f) return f end;
-
-	function LPH_JIT(f) return f end;
-
-	function LPH_JIT_MAX(f) return f end;
-]])();
-
 local player = game.Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 
