@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Spyder X | Get Key</title>
+  <style>
+    :root {
+      --primary: #5865F2;
+      --success: #3BA55D;
+      --background: #0e0e1a;
+      --text: #ffffff;
+      --text-secondary: #b9bbbe;
+    }
+    
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .container {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .description {
+      color: var(--text-secondary);
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+    
+    .button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+    }
+    
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .button:active {
+      transform: translateY(0);
+    }
+    
+    .discord {
+      background-color: var(--primary);
+    }
+    
+    .continue {
+      background-color: var(--success);
+      display: none;
+    }
+    
+    .disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    #countdown {
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    .discord-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .discord-icon svg {
+      width: 48px;
+      height: 48px;
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Làm Nhiệm Vụ Để Tiếp Tục</h1>
+    <p class="description">Vui lòng tham gia Discord của chúng tôi để tiếp tục. Sau khi tham gia, bạn sẽ được chuyển hướng tự động.</p>
+    
+    <button class="button discord" onclick="startCountdown()">Tham gia Discord</button>
+    <button id="continueBtn" class="button continue disabled" disabled>Tiếp tục</button>
+    
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    function startCountdown() {
+      window.open("https://discord.gg/your-invite-code", "_blank");
+      
+      let seconds = 10;
+      const countdown = document.getElementById("countdown");
+      const continueBtn = document.getElementById("continueBtn");
+      countdown.innerHTML = `<span style="color: #f04747">⚠️</span> Vui lòng chờ ${seconds} giây...`;
+      
+      document.querySelector(".discord").classList.add("disabled");
+      document.querySelector(".discord").textContent = "Đã tham gia Discord";
+
+      const timer = setInterval(() => {
+        seconds--;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          countdown.innerHTML = "✅ Bạn có thể tiếp tục";
+          continueBtn.disabled = false;
+          continueBtn.classList.remove("disabled");
+          continueBtn.style.display = "block";
+          
+          // Auto-click after 2 seconds if user doesn't click
+          setTimeout(() => {
+            if (!continueBtn.disabled) {
+              continueBtn.click();
+            }
+          }, 2000);
+        } else {
+          countdown.innerHTML = `<span style="color: #faa61a">⏳</span> Vui lòng chờ ${seconds} giây...`;
+        }
+      }, 1000);
+    }
+
+    document.getElementById("continueBtn").addEventListener("click", () => {
+      const encoded = getParam("url");
+      if (!encoded) {
+        alert("Không tìm thấy liên kết đích.");
+        return;
+      }
+      try {
+        const decodedUrl = atob(encoded);
+        window.location.href = decodedUrl;
+      } catch {
+        alert("Liên kết không hợp lệ!");
+      }
+    });
+    
+    // Check if there's a redirect URL
+    window.addEventListener('DOMContentLoaded', () => {
+      const encoded = getParam("url");
+      if (!encoded) {
+        alert("Thiếu tham số URL đích. Không thể chuyển hướng.");
+      }
+    });
+  </script>
+</body>
+</html>
