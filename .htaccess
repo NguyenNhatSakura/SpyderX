@@ -4,3 +4,4 @@ RewriteRule ^(.*)$ $1.html [L]
 ErrorDocument 404 /404.html
 RewriteRule /key/main$ /key/main.html [L]
 RewriteRule /key/go$ /key/go.html [L]
+RewriteRule /profile/nguyenminhnnhat$ /profile.html [L]
