@@ -89,26 +89,34 @@
       font-size: 14px;
       color: var(--text-secondary);
     }
-    
-    .discord-icon {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 20px;
-      background-color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    #errorBox {
+      background-color: #1e1e2f;
+      color: #ff5555;
+      padding: 25px;
+      border-radius: 8px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    
-    .discord-icon svg {
-      width: 48px;
-      height: 48px;
-      fill: white;
+
+    #errorBox h2 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    #errorBox p {
+      color: #ffaaaa;
     }
   </style>
 </head>
 <body>
+  <div id="errorBox" style="display: none;">
+    <h2>🚫 Lỗi!</h2>
+    <p>Thiếu hoặc sai định dạng liên kết đích.<br>Vui lòng kiểm tra lại URL.</p>
+  </div>
+
   <div class="container">
     <h1>Làm Nhiệm Vụ Để Tiếp Tục</h1>
     <p class="description">Vui lòng tham gia Discord của chúng tôi để tiếp tục. Sau khi tham gia, bạn sẽ được chuyển hướng tự động.</p>
@@ -145,7 +153,6 @@
           continueBtn.classList.remove("disabled");
           continueBtn.style.display = "block";
           
-          // Auto-click after 2 seconds if user doesn't click
           setTimeout(() => {
             if (!continueBtn.disabled) {
               continueBtn.click();
@@ -170,12 +177,12 @@
         alert("Liên kết không hợp lệ!");
       }
     });
-    
-    // Check if there's a redirect URL
+
     window.addEventListener('DOMContentLoaded', () => {
       const encoded = getParam("url");
-      if (!encoded) {
-        alert("Thiếu tham số URL đích. Không thể chuyển hướng.");
+      if (!encoded || encoded.trim() === "") {
+        document.querySelector('.container').style.display = 'none';
+        document.getElementById('errorBox').style.display = 'block';
       }
     });
   </script>
