@@ -11,7 +11,7 @@
       --text: #ffffff;
       --text-secondary: #b9bbbe;
     }
-    
+
     body {
       background: var(--background);
       color: var(--text);
@@ -25,7 +25,7 @@
       padding: 20px;
       text-align: center;
     }
-    
+
     .container {
       background: rgba(0, 0, 0, 0.3);
       border-radius: 8px;
@@ -34,19 +34,19 @@
       width: 100%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    
+
     h1 {
       margin: 0 0 20px;
       font-size: 24px;
       font-weight: 600;
     }
-    
+
     .description {
       color: var(--text-secondary);
       margin-bottom: 25px;
       line-height: 1.5;
     }
-    
+
     .button {
       padding: 12px 24px;
       font-size: 16px;
@@ -59,88 +59,78 @@
       transition: all 0.2s ease;
       margin-bottom: 12px;
     }
-    
+
     .button:hover {
       transform: translateY(-1px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .button:active {
       transform: translateY(0);
     }
-    
+
     .discord {
       background-color: var(--primary);
     }
-    
+
     .continue {
       background-color: var(--success);
       display: none;
     }
-    
+
     .disabled {
       opacity: 0.7;
       cursor: not-allowed;
       pointer-events: none;
     }
-    
+
     #countdown {
       margin-top: 15px;
       font-size: 14px;
       color: var(--text-secondary);
     }
-
-    #errorBox {
-      background-color: #1e1e2f;
-      color: #ff5555;
-      padding: 25px;
-      border-radius: 8px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    #errorBox h2 {
-      margin-bottom: 10px;
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    #errorBox p {
-      color: #ffaaaa;
-    }
   </style>
 </head>
 <body>
-  <div id="errorBox" style="display: none;">
-    <h2>🚫 Lỗi!</h2>
-    <p>Thiếu hoặc sai định dạng liên kết đích.<br>Vui lòng kiểm tra lại URL.</p>
-  </div>
-
   <div class="container">
     <h1>Làm Nhiệm Vụ Để Tiếp Tục</h1>
     <p class="description">Vui lòng tham gia Discord của chúng tôi để tiếp tục. Sau khi tham gia, bạn sẽ được chuyển hướng tự động.</p>
-    
+
     <button class="button discord" onclick="startCountdown()">Tham gia Discord</button>
     <button id="continueBtn" class="button continue disabled" disabled>Tiếp tục</button>
-    
+
     <div id="countdown"></div>
   </div>
 
   <script>
+    let decodedUrl = '';
+
     function getParam(name) {
       const url = new URL(window.location.href);
       return url.searchParams.get(name);
     }
 
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    function updateUUIDinURL() {
+      const uuid = generateUUID();
+      const newUrl = `${window.location.pathname}?id=${uuid}`;
+      history.replaceState({}, '', newUrl);
+    }
+
     function startCountdown() {
       window.open("https://discord.gg/VM7ESrzccs", "_blank");
-      
+
       let seconds = 10;
       const countdown = document.getElementById("countdown");
       const continueBtn = document.getElementById("continueBtn");
       countdown.innerHTML = `<span style="color: #f04747">⚠️</span> Vui lòng chờ ${seconds} giây...`;
-      
+
       document.querySelector(".discord").classList.add("disabled");
       document.querySelector(".discord").textContent = "Đã tham gia Discord";
 
@@ -152,7 +142,7 @@
           continueBtn.disabled = false;
           continueBtn.classList.remove("disabled");
           continueBtn.style.display = "block";
-          
+
           setTimeout(() => {
             if (!continueBtn.disabled) {
               continueBtn.click();
@@ -165,25 +155,31 @@
     }
 
     document.getElementById("continueBtn").addEventListener("click", () => {
-      const encoded = getParam("url");
-      if (!encoded) {
+      if (!decodedUrl) {
         alert("Không tìm thấy liên kết đích.");
         return;
       }
-      try {
-        const decodedUrl = atob(encoded);
-        window.location.href = decodedUrl;
-      } catch {
-        alert("Liên kết không hợp lệ!");
-      }
+      window.location.href = decodedUrl;
     });
 
     window.addEventListener('DOMContentLoaded', () => {
       const encoded = getParam("url");
-      if (!encoded || encoded.trim() === "") {
-        document.querySelector('.container').style.display = 'none';
-        document.getElementById('errorBox').style.display = 'block';
+      if (!encoded) {
+        alert("Thiếu tham số URL đích. Không thể chuyển hướng.");
+        return;
       }
+
+      // Giải mã và lưu
+      try {
+        decodedUrl = atob(encoded);
+      } catch {
+        alert("Liên kết không hợp lệ!");
+        return;
+      }
+
+      // Ẩn ?url= bằng cách thay thế thành ?id=<uuid>
+      updateUUIDinURL();
+      setInterval(updateUUIDinURL, 1000);
     });
   </script>
 </body>
