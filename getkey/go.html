@@ -7,6 +7,7 @@
     :root {
       --primary: #5865F2;
       --success: #3BA55D;
+      --error: #f04747;
       --background: #0e0e1a;
       --text: #ffffff;
       --text-secondary: #b9bbbe;
@@ -89,6 +90,12 @@
       font-size: 14px;
       color: var(--text-secondary);
     }
+
+    .error-message {
+      color: var(--error);
+      margin-top: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -100,6 +107,7 @@
     <button id="continueBtn" class="button continue disabled" disabled>Tiếp tục</button>
 
     <div id="countdown"></div>
+    <div id="error" class="error-message"></div>
   </div>
 
   <script>
@@ -164,22 +172,24 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const encoded = getParam("url");
+      const errorBox = document.getElementById("error");
+
       if (!encoded) {
-        alert("Thiếu tham số URL đích. Không thể chuyển hướng.");
+        errorBox.textContent = "❌ Thiếu tham số ?url= (đã bị ẩn). Không thể tiếp tục.";
+        document.querySelector(".discord").classList.add("disabled");
         return;
       }
 
-      // Giải mã và lưu
       try {
         decodedUrl = atob(encoded);
       } catch {
-        alert("Liên kết không hợp lệ!");
+        errorBox.textContent = "❌ Tham số ?url= không hợp lệ hoặc bị mã hóa sai.";
         return;
       }
 
-      // Ẩn ?url= bằng cách thay thế thành ?id=<uuid>
+      // Ẩn url và hiển thị uuid ngẫu nhiên
       updateUUIDinURL();
-      setInterval(updateUUIDinURL, 1000);
+      setInterval(updateUUIDinURL, 500);
     });
   </script>
 </body>
